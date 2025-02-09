@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Doctor Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #003366, #004080, #0059b3, #0073e6);
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .form-container {
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .form-container label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;  /* Aligns label to the left */
+            text-align: left;  /* Ensures text aligns left */
+            margin-left: 0;  /* Removes any additional space */
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .form-container button {
+            padding: 12px 24px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #1a75ff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 200px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container button:hover {
+            background-color: #0059b3;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Edit Doctor Profile</h1>
+
+    <div class="form-container">
+        <form method="POST">
+
+            <label for="available_slots">Available Slots (comma-separated):</label>
+            <input type="text" name="available_slots" value="{{ doctor_info[3] }}" required>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+
+</body>
+</html>

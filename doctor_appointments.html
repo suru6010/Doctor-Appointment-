@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #003366, #004080, #0059b3, #0073e6);
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 35px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .table-container {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #1a75ff;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e6f7ff;
+        }
+
+        .no-appointments {
+            font-size: 18px;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Appointments</h1>
+
+    <div class="table-container">
+        {% if appointments %}
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Height</th>
+                    <th>Weight</th>
+                    <th>Gender</th>
+                    <th>Slot</th>
+                    <th>Date</th>
+                </tr>
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment[0] }}</td>
+                    <td>{{ appointment[1] }}</td>
+                    <td>{{ appointment[2] }}</td>
+                    <td>{{ appointment[3] }}</td>
+                    <td>{{ appointment[4] }}</td>
+                    <td>{{ appointment[5] }}</td>
+                    <td>{{ appointment[6] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p class="no-appointments">No appointments found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

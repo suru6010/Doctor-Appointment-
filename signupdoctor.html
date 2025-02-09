@@ -1,0 +1,111 @@
+<!-- signupdoctor.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #003366, #004080, #0059b3, #0073e6);
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+            text-align: left;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #1a75ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            background-color: #1a75ff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #0059b3;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Doctor Sign Up</h1>
+    <form action="/signupdoctor" method="POST">
+        <label for="doctor_email">Email:</label>
+        <input type="email" id="doctor_email" name="doctor_email" placeholder="Enter your email" required>
+
+        <label for="doctor_password">Password:</label>
+        <input type="password" id="doctor_password" name="doctor_password" placeholder="Enter your password" required>
+
+        <label for="doctor_confirm_password">Confirm Password:</label>
+        <input type="password" id="doctor_confirm_password" name="doctor_confirm_password" placeholder="Confirm your password" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+</body>
+</html>
+

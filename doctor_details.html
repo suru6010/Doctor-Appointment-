@@ -1,0 +1,110 @@
+<!-- doctor_details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #003366, #004080, #0059b3, #0073e6);
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #1a75ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            background-color: #1a75ff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #0059b3;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Enter Your Details</h1>
+    <form method="POST">
+        <div>
+            <label for="name">Doctor Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter doctor's name">
+        </div>
+        <div>
+            <label for="speciality">Speciality:</label>
+            <input type="text" id="speciality" name="speciality" required placeholder="Enter doctor's speciality">
+        </div>
+        <div>
+            <label for="slots">Available Slots (comma separated):</label>
+            <input type="text" id="slots" name="slots" required placeholder="e.g. 9:00 AM, 9:30 AM, 10:00 AM">
+        </div>
+        <button type="submit">Save Details</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 20px;
+            padding: 20px;
+            color: #333;
+        }
+        h2 {
+            color: #003366;
+        }
+        .appointment-info {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .appointment-info p {
+            margin: 10px 0;
+        }
+        .confirmation-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0059b3;
+        }
+        a button {
+            background-color: #999;
+        }
+        a button:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Cancel Appointment</h2>
+    
+    <div class="appointment-info">
+        <p><strong>Doctor:</strong> {{ doctor_name }}</p>
+        <p><strong>Speciality:</strong> {{ speciality }}</p>
+        <p><strong>Date:</strong> {{ appointment_date }}</p>
+        <p><strong>Slot:</strong> {{ slot }}</p>
+    </div>
+
+    <h3>Are you sure you want to cancel this appointment?</h3>
+
+    <div class="confirmation-buttons">
+        <form method="POST">
+            <button type="submit" name="confirm" value="yes">Yes, Cancel Appointment</button>
+        </form>
+        <a href="{{ url_for('show_appointments', email=email) }}">
+            <button type="button">No, Go Back</button>
+        </a>
+    </div>
+
+</body>
+</html>

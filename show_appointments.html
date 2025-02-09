@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments</title>
+    <style>
+        /* Importing Google Font Poppins */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        /* Applying Poppins font to the entire body */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #003366;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #003366;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>My Appointments</h2>
+
+    <table>
+        <tr>
+            <th>Doctor Name</th>
+            <th>Speciality</th>
+            <th>Date</th>
+            <th>Slot</th>
+            <th>Action</th>
+        </tr>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment[1] }}</td>
+            <td>{{ appointment[2] }}</td>
+            <td>{{ appointment[3] }}</td>
+            <td>{{ appointment[4] }}</td>
+            <td>
+                <!-- Cancel Appointment Button -->
+                <button onclick="window.location.href='/cancel_appointment/{{ email }}/{{ appointment[0] }}/{{ appointment[3] }}/{{ appointment[4] }}'">
+                    Cancel Appointment
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
+

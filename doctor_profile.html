@@ -1,0 +1,90 @@
+<!-- doctor_profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #003366, #004080, #0059b3, #0073e6);
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .profile-info {
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .profile-info p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #1a75ff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 200px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: #0059b3;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Profile</h1>
+
+    {% if doctor_info %}
+        <div class="profile-info">
+            <p><strong>Name:</strong> {{ doctor_info[1] }}</p>
+            <p><strong>Speciality:</strong> {{ doctor_info[2] }}</p>
+            <p><strong>Available Slots:</strong> {{ doctor_info[3] }}</p>
+            <a href="{{ url_for('doctor_edit_profile', doctor_id=doctor_info[0]) }}" class="btn">Edit Profile</a>
+        </div>
+    {% else %}
+        <p>Doctor information not found.</p>
+    {% endif %}
+
+</body>
+</html>
+

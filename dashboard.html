@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        /* Importing Google Font Poppins */
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        /* Body and overall page styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        .dashboard-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+            background: #fff;
+            color: #000;
+        }
+
+        h2 {
+            color: #003366;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        button {
+            font-family: 'Poppins', sans-serif; /* Ensures the button uses the Poppins font */
+            background-color: #003366;
+            color: white;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0059b3;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h2>Welcome to your dashboard</h2>
+        <button onclick="window.location.href='/profile/{{ email }}'">Profile</button>
+        <button onclick="window.location.href='/search_doctor?email={{ email }}'">book An Appointment</button>
+        <button onclick="window.location.href='/show_appointments/{{ email }}'">Show My Appointments</button>
+    </div>
+
+</body>
+</html>

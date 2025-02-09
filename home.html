@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #87CEEB; /* Sky blue background color */
+            color: #fff;
+            text-align: center;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 40px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .button-container button {
+            width: 200px;
+            padding: 15px;
+            font-size: 18px;
+            background: #fff;
+            color: #1a75ff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container button:hover {
+            background: #1a75ff;
+            color: #fff;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container button:focus {
+            outline: none;
+        }
+
+        .image-container img {
+            width: 100%; /* Full width of the screen */
+            height: 200px; /* Set height to 200px */
+            object-fit: cover; /* Ensure the image covers the entire area without distortion */
+            margin-bottom: 10px; /* Space between image and heading */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='dam.jpg') }}" alt="Logo">
+    </div>
+    
+    <h1>Health Link</h1>
+    <div class="button-container">
+        <button onclick="window.location.href='/patient'">Patient</button>
+        <button onclick="window.location.href='/doctor'">Doctor</button>
+    </div>
+
+</body>
+</html>
+

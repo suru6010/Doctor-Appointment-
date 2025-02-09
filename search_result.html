@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        /* Importing Google Font Poppins */
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        /* Body and overall page styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .content-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 800px;
+            color: #000;
+        }
+
+        h1 {
+            color: #003366;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #003366;
+            color: #fff;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        button {
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #0059b3;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .no-doctors {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-container">
+        <h1>Available Doctors</h1>
+
+        <!-- Check if there are doctors in the list -->
+        {% if doctors %}
+            <table>
+                <tr>
+                    
+                    <th>Name</th>
+                    <th>Speciality</th>
+                    <th>Available Slots</th>
+                    <th>Action</th>
+                </tr>
+                <!-- Loop through each doctor in the results -->
+                {% for doctor in doctors %}
+                <tr>
+                    
+                    <td>{{ doctor[1] }}</td>
+                    <td>{{ doctor[2] }}</td>
+                    <td>{{ doctor[3] }}</td>
+                    <td>
+                        <!-- Pass the email and doctor ID correctly in the booking link -->
+                        <button onclick="window.location.href='/book_appointment/{{ email }}/{{ doctor[0] }}'">Book Appointment</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p class="no-doctors">No doctors found for the selected speciality. Please try again.</p>
+        {% endif %}
+
+        <!-- Button to go back to search doctor page -->
+        <button onclick="window.location.href='/search_doctor'">Search Again</button>
+        <!-- Button to show the user's appointments -->
+        <button onclick="window.location.href='/show_appointments/{{ email }}'">Show My Appointments</button>
+    </div>
+
+</body>
+</html>

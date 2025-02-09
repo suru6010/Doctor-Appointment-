@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up or Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html, body {
+            display: grid;
+            height: 100%;
+            width: 100%;
+            place-items: center;
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+        }
+
+        h2 {
+            color: #fff;
+            font-size:45px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px; /* Space between image and heading */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .button-container button {
+            height: 50px;
+            width: 200px;
+            background: #fff;
+            color: #1a75ff;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container button:hover {
+            background: #1a75ff;
+            color: #fff;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Image placed above the heading -->
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='abc.png') }}" alt="Logo">
+        </div>
+        
+        <!-- Heading -->
+        <h2>Welcome Doctor! </h2>
+        
+        <!-- Button Container -->
+        <div class="button-container">
+            <button onclick="window.location.href='/signupdoctor'">Sign Up</button>
+            <button onclick="window.location.href='/logindoctor'">Login</button>
+        </div>
+    </div>
+
+</body>
+</html>

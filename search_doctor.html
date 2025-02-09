@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Doctor</title>
+    <style>
+        /* Importing Google Font Poppins */
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        /* Body and overall page styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        .search-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+            color: #000;
+        }
+
+        h1 {
+            color: #003366;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+            color: #333;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0059b3;
+        }
+
+        select:focus, button:focus {
+            outline: none;
+        }
+
+        .doctor-list {
+            margin-top: 30px;
+        }
+
+        .doctor-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .doctor-list li {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .doctor-list a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .doctor-list a:hover {
+            color: #0059b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <h1>Search for a Doctor</h1>
+        <form method="POST">
+            <label for="speciality">Choose a Speciality:</label>
+            <select name="speciality" id="speciality">
+                <option value="Physiology">Physiology</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Gastroenterology">Gastroenterology</option>
+                <option value="Ophthalmology">Ophthalmology</option>
+                <option value="Endocrinology">Endocrinology</option>
+                <option value="Gynecology">Gynecology</option>
+                <option value="Psychiatry">Psychiatry</option>
+                <option value="Urology">Urology</option>
+                <option value="Dentistry">Dentistry</option>
+                <option value="Oncology">Oncology</option>
+                <option value="Pulmonology">Pulmonology</option>
+                <option value="Rheumatology">Rheumatology</option>
+                <option value="Nephrology">Nephrology</option>
+                <option value="General Surgery">General Surgery</option>
+                <option value="Plastic Surgery">Plastic Surgery</option>
+                <option value="Vascular Surgery">Vascular Surgery</option>
+                <option value="ENT (Ear, Nose, Throat)">ENT (Ear, Nose, Throat)</option>
+                <option value="Geriatrics">Geriatrics</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if doctors %}
+            <div class="doctor-list">
+                <h2>Search Results</h2>
+                <ul>
+                    {% for doctor in doctors %}
+                        <li>
+                            <p>{{ doctor[1] }} - Speciality: {{ doctor[2] }} - Available Slots: {{ doctor[3] }}</p>
+                            <a href="{{ url_for('book_appointment', email=email, doctor_id=doctor[0]) }}">Book Appointment</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
